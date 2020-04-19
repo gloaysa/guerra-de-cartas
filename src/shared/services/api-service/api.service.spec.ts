@@ -1,10 +1,10 @@
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {fakeAsync, TestBed, tick} from '@angular/core/testing';
-import {Observable, of} from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { Observable, of } from 'rxjs';
 
-import {API_URL, ApiService} from './api.service';
+import { API_URL, ApiService } from './api.service';
 
-import {environment} from '../environments/environment';
+import { environment } from '../../../environments/environment';
 
 const testValue = { key: 'value' };
 
@@ -32,8 +32,8 @@ describe('ApiService', () => {
       providers: [
         ApiService,
         { provide: HttpClient, useClass: MockHttp },
-        { provide: API_URL, useValue: environment.apiUrl }
-      ]
+        { provide: API_URL, useValue: environment.apiUrl },
+      ],
     });
     service = TestBed.get(ApiService);
   });
@@ -47,7 +47,7 @@ describe('ApiService', () => {
   });
 
   it('should return an object on get', fakeAsync(() => {
-    service.get(endPoint).subscribe(responseBody => (value = responseBody));
+    service.get(endPoint).subscribe((responseBody) => (value = responseBody));
     tick();
 
     expect(value).toBe(testValue);
@@ -63,27 +63,29 @@ describe('ApiService', () => {
       testNull: null,
       testUndefined: undefined,
       testObject: {},
-      testArray: []
+      testArray: [],
     };
     let correctParams = new HttpParams();
     correctParams = correctParams.set('testString', 'string');
     correctParams = correctParams.set('testBoolean', 'false');
     correctParams = correctParams.set('testNumber', '9');
 
-    service.get(endPoint, params).subscribe(responseBody => (value = responseBody));
+    service.get(endPoint, params).subscribe((responseBody) => (value = responseBody));
     tick();
 
-    expect(httpClientSpy).toHaveBeenCalledWith(`${service.getApiUrl()}/${endPoint}`, { params: correctParams });
+    expect(httpClientSpy).toHaveBeenCalledWith(`${service.getApiUrl()}/${endPoint}`, {
+      params: correctParams,
+    });
   }));
 
   it('should make a post request', fakeAsync(() => {
-    service.post(endPoint, {}).subscribe(responseBody => (value = responseBody));
+    service.post(endPoint, {}).subscribe((responseBody) => (value = responseBody));
     tick();
     expect(value).toBe(testValue);
   }));
 
   it('should make a put request', fakeAsync(() => {
-    service.put(endPoint, {}).subscribe(responseBody => (value = responseBody));
+    service.put(endPoint, {}).subscribe((responseBody) => (value = responseBody));
     tick();
     expect(value).toBe(testValue);
   }));
