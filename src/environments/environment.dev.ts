@@ -5,7 +5,7 @@
 export const environment = {
   id: 'development',
   production: false,
-  apiUrl: 'http://localhost:5000/api/game'
+  apiUrl: 'http://localhost:5000/api/game',
 };
 
 /*
