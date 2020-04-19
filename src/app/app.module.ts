@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {CreateGameModule} from '../components/create-game/create-game.module';
+import {MessageModule} from '../lib/message/message.module';
 import {ApiModule} from '../shared/services/api-service/api.module';
 import {AppRoutingModule} from './app-routing.module';
 
@@ -20,6 +21,7 @@ import {environment} from '../environments/environment';
     HttpClientModule,
     ApiModule.forRoot(environment.apiUrl),
     CreateGameModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

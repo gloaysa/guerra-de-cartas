@@ -1,0 +1,9 @@
+<div
+  *ngIf="showMessage"
+  class="notification has-text-centered message-wrapper"
+  [ngClass]="{'is-primary': message.type === 'error'}"
+  (mouseover)="stopTimeout()"
+>
+  <button class="delete" (click)="hideMessage()"></button>
+  {{message.value}}
+</div>

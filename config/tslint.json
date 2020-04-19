@@ -44,6 +44,10 @@
         "grouped-imports": true,
         "groups": [
           {
+            "match": "zone.js/.+",
+            "order": 0
+          },
+          {
             "match": "^(@angular/)|(angular).+",
             "order": 1
           },

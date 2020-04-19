@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {MockComponent} from 'ng-mocks';
 
 import {CreateGameComponent} from '../components/create-game/create-game.component';
+import {MessageComponent} from '../lib/message/message.component';
 import {AppComponent} from './app.component';
 
 describe('AppComponent', () => {
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        MockComponent(CreateGameComponent)
+        MockComponent(CreateGameComponent),
+        MockComponent(MessageComponent)
       ],
     }).compileComponents();
   }));

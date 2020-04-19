@@ -7,9 +7,6 @@ import { Message, MessageType } from '../../models/message.model';
   providedIn: 'root',
 })
 export class MessageService {
-  /**
-   * Channel to send/receive errors
-   */
   private readonly messages: Subject<Message> = new Subject();
 
   constructor() {}
